@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>JavaScript is Love</h1>
+
+
+
+
+
+
+
+    <script>
+        // let task = false;
+
+        // let promise = new Promise(function(resolve, reject){
+        //     if(task){
+        //         resolve("Condition True")
+        //     }
+        //     else{
+        //         reject("Condition False")
+        //     }
+        // })
+
+        // console.log(promise);
+
+
+
+        // Output
+
+        // Promise { <state>: "fulfilled", <value>: "Condition True" }
+
+
+
+
+
+
+
+        // function promise(task) {
+        //     return new Promise(function (resolve, reject) {
+        //         if (task) {
+        //             resolve("Condition true")
+        //         }
+        //         else {
+        //             reject("Condition false")
+        //         }
+        //     })
+        // }
+
+        // console.log(promise(false));
+
+
+
+
+
+
+
+
+
+
+        // var promise1 = new Promise((resolve , reject)=>{
+        //     setTimeout(() => {
+        //         resolve(1)
+        //     }, 2000);
+        // })
+
+        // var promise2 = new Promise((resolve , reject)=>{
+        //     setTimeout(() => {
+        //         resolve(2)
+        //     }, 2000);
+        // })
+
+        // Promise.all([promise1,promise2])
+        // .then((res)=>console.log(res))
+        // .then((err)=>console.log(err))
+
+
+
+
+
+
+
+
+
+
+
+
+        // var promise = new Promise(function (resolve, reject) {
+        //     reject()
+        // });
+
+        // promise.then(function () {
+        //     console.log('Successful Message');
+        // })
+        //     .catch(function () {
+        //     console.log('error Message');
+        // });
+
+
+
+
+
+
+
+
+
+        // function signup() {
+        //     return new Promise((resolve, reject) => {
+        //         setTimeout(() => {
+        //             console.log("Signned Up");
+        //             resolve();
+        //         }, 2000);
+        //     })
+        // }
+
+        // function login() {
+        //     return new Promise((resolve, reject) => {
+        //         setTimeout(() => {
+        //             console.log("Logged In");
+        //             resolve();
+        //         }, 2400);
+        //     })
+        // }
+
+        // function data() {
+        //     return new Promise((resolve, reject) => {
+        //         setTimeout(() => {
+        //             console.log("Data Transferred");
+        //             resolve();
+        //         }, 2600);
+        //     })
+        // }
+
+        // function rendered() {
+        //     return new Promise((resolve, reject) => {
+        //         setTimeout(() => {
+        //             console.log("Rendered Succesfully");
+        //             resolve();
+        //         }, 2700);
+        //     })
+        // }
+
+        // function transferred() {
+        //     return new Promise((resolve, reject) => {
+        //         setTimeout(() => {
+        //             console.log("Displayed Successfully");
+        //             resolve();
+        //         }, 2900);
+        //     })
+        // }
+
+        // signup()
+        //     .then(login)
+        //     .then(data)
+        //     .then(rendered)
+        //     .then(transferred)
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // const gitApi = fetch('https://api.github.com/users/andrew');
+
+        // // console.log(gitApi);
+
+        // gitApi.then((res) => res.json())
+        //     .then((pro) => console.log(pro))
+        //     .catch((err) => console.log(err));
+        // // console.log(gitApi);
+
+
+
+
+
+        //This is the promise as a Constructor 
+        const promise = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                let roll_no = [1, 2, 4, 6, 8, 9,];
+                resolve(roll_no[3])
+                reject('Error While communicating to API')
+            }, 2000);
+        });
+
+        // here we have created PROMISE as an object & inside the function..
+        const bioData = () => {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    let biodata = {
+                        name: "Saif",
+                        age: 77,
+                        location: "Gurgaon",
+                        occupation: "Frontend Developer"
+                    }
+                    resolve(`My name is ${biodata.name} and my occupation is ${biodata.occupation} , I live in ${biodata.location}`)
+                }, 3000);
+            })
+        }
+
+        // promise.then((res) => console.log(res));
+        // bioData().then((kuch) => console.log(kuch))
+
+        //     .catch((err) => console.log(err))
+
+
+
+        // We are using async and await to get the data of Promises created above  
+        async function dataGet() {
+
+            try {
+                const dataa = await promise;
+                console.log(dataa);
+
+                const dataaa = await bioData();
+                console.log(dataaaa);
+
+                // return biodata;
+            }
+            catch (error) {
+                alert(`Oops Some Error Occured ${error}`);
+            }
+
+        }
+
+        dataGet()
+
+        // const getname = dataGet().then((pro) => {
+        //     console.log(pro);
+        // });
+
+
+
+
+
+
+
+
+
+        function Person(first, last, age, eye) {
+            this.first = first;
+            this.lastName = last;
+            this.age = age;
+            this.eyeColor = eye;
+        }
+
+        const myFather = new Person("John", "Doe", 50, "blue");
+        const myMother = new Person("Sally", "Rally", 48, "green");
+
+        console.log("My father's name is " + myFather.first + ". My mother is " + myMother.first);
+
+
+
+
+
+
+
+        function Person(first, last, age, eye) {
+            this.firstName = first;
+            this.lastName = last;
+            this.age = age;
+            this.eyeColor = eye;
+            this.nationality = "English";
+        }
+
+        const myFatherr = new Person("John", "Doe", 50, "blue");
+        const myMotherr = new Person("Sally", "Rally", 48, "green")
+
+        console.log("The nationality of my father is " + myFatherr.nationality + ". The nationality of my mother is " + myMotherr.nationality);
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
